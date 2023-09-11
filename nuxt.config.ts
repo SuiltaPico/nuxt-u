@@ -2,6 +2,14 @@
 export default defineNuxtConfig({
   // devtools: { enabled: true },
   routeRules: {
-    '/game-of-life': { ssr: false },
-  }
+    "/game-of-life": { ssr: false },
+  },
+  vite: {
+    css: {
+      postcss: {
+        plugins: [],
+      },
+    },
+  },
+  css: ["@/assets/css/main.css"],
 });

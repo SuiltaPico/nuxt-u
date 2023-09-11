@@ -19,10 +19,10 @@ function get_size_of_shape(shape: MatrixShape) {
   return shape[0] * shape[1];
 }
 
-const shape = [500, 300] as MatrixShape;
+const shape = [300, 180] as MatrixShape;
 const size_of_shape = get_size_of_shape(shape);
 
-const cell_size = 3;
+const cell_size = 5;
 
 function make_random_vec2d() {
   return [
@@ -33,7 +33,7 @@ function make_random_vec2d() {
         ...transduce<number, number, number[]>(
           take(shape[0]),
           push(),
-          repeatedly(() => Math.floor(Math.random() + 0.2))
+          repeatedly(() => ((Math.random() > 0.8) ? 1 : 0))
         ),
       ])
     ),
@@ -240,11 +240,13 @@ next_frame();
 
 <template>
   <div class="gol-page">
+    <div></div>
     <div ref="canvas_container"></div>
   </div>
 </template>
 
 <style>
-.gol-page .cell {
+.gol-page {
+  
 }
 </style>
